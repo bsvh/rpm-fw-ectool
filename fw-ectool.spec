@@ -35,7 +35,7 @@ make utils
 
 %install
 install -Dm755 build/bds/util/ectool %{buildroot}%{_bindir}/ectool
-install -p -m 0644 %SOURCE1 %{buildroot}%{_bindir}/fw-ectool
+install -m755 %SOURCE1 %{buildroot}%{_bindir}/fw-ectool
 
 
 %clean
