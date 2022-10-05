@@ -14,6 +14,7 @@ URL:            https://github.com/DHowett/framework-ec
 Source0:        https://github.com/DHowett/framework-ec/archive/%{commit}/%{reponame}-%{shortcommit}.tar.gz
 Source1:        fw-ectool.sh
 
+BuildRequires:  make
 BuildRequires:  arm-none-eabi-gcc-cs
 BuildRequires:  libftdi-devel
 Requires:       libftdi
