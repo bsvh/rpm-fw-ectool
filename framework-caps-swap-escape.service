@@ -1,0 +1,11 @@
+[Unit]
+Description=Swap CAPS with Escape in Framework Embedded Controller
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/bin/fw-ectool raw 0x3E0c d1,d1,b4,b4,w76
+ExecStart=/usr/bin/fw-ectool raw 0x3E0c d1,d1,b7,b5,w58
+
+[Install]
+WantedBy=multi-user.target

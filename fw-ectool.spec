@@ -13,6 +13,7 @@ License:        BSD
 URL:            https://github.com/DHowett/framework-ec
 Source0:        https://github.com/DHowett/framework-ec/archive/%{commit}/%{reponame}-%{shortcommit}.tar.gz
 Source1:        fw-ectool.sh
+Source2:		framework-caps-swap-escape.service
 
 BuildRequires:  gcc
 BuildRequires:  make
@@ -34,8 +35,9 @@ make utils
 
 
 %install
-install -Dm755 build/bds/util/ectool %{buildroot}%{_bindir}/ectool
+install -Dm755 build/bds/util/ectool %{buildroot}%{_bindir}/
 install -m755 %SOURCE1 %{buildroot}%{_bindir}/fw-ectool
+install -m644 %SOURCE1 %{buildroot}%{_libdir}/systemd/system/
 
 
 %clean
@@ -50,6 +52,8 @@ rm -rf %{buildroot}
 
 
 %changelog
+* Tue Dec 13 2022 Brendan Van Hook <brendan@vastactive.com>
+- Add systemd unit file for swapping caps lock with escape
 * Wed Oct 05 2022 Brendan Van Hook <brendan@vastactive.com>
 - Initial spec file
 - Add alias fw-ectool to ectool --interface=fwk
