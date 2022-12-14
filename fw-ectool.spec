@@ -48,6 +48,7 @@ rm -rf %{buildroot}
 %license LICENSE
 %{_bindir}/ectool
 %{_bindir}/fw-ectool
+%{_libdir}/systemd/system/framework-caps-swap-escape.service
 
 
 
