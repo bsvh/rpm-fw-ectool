@@ -1,7 +1,7 @@
 %global reponame    framework-ec
-%global commit      d5b5b5008d2f98400206deb182e8ce772b6df9df
+%global commit      54c140399bbc3e6a3dce6c9f842727c4128367be
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
-%global commit_date 20220412
+%global commit_date 20221204
 %global gitrel      .%{commit_date}.git%{shortcommit}
 
 Name:           fw-ectool
@@ -37,7 +37,7 @@ make utils
 %install
 install -Dm755 build/bds/util/ectool %{buildroot}%{_bindir}/ectool
 install -m755 %SOURCE1 %{buildroot}%{_bindir}/fw-ectool
-install -m644 %SOURCE2 %{buildroot}%{_libdir}/systemd/system/framework-caps-swap-escape.service
+install -Dm644 %SOURCE2 %{buildroot}%{_libdir}/systemd/system/framework-caps-swap-escape.service
 
 
 %clean
