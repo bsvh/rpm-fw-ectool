@@ -51,7 +51,7 @@ install -Dm755 %SOURCE5 %{buildroot}%{_sysconfdir}/framework-ectool/swap-caps-es
 %{_bindir}/ectool
 %{_bindir}/fw-ectool
 %{_libdir}/systemd/system/framework-ectool.service
-%{_libexecdir}%{_libexec}/framework-ectool
+%{_libexecdir}/framework-ectool
 %{_sysconfdir}/framework-ectool/battery-limit.sh
 %{_sysconfdir}/framework-ectool/swap-caps-escape.sh
 
