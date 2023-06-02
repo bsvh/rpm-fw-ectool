@@ -6,7 +6,7 @@
 
 Name:           fw-ectool
 Version:        v0.3.3
-Release:        1%{gitrel}%{?dist}
+Release:        2%{gitrel}%{?dist}
 Summary:        A tool for interacting with the embedded controller on a Framework laptop.
 
 License:        BSD
