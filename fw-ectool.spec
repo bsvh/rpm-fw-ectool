@@ -41,7 +41,7 @@ make utils
 install -Dm755 build/bds/util/ectool %{buildroot}%{_bindir}/ectool
 install -m755 %SOURCE1 %{buildroot}%{_bindir}/fw-ectool
 install -Dm644 %SOURCE2 %{buildroot}%{_libdir}/systemd/system/framework-ectool.service
-install -m755 %SOURCE3 %{buildroot}%{_libexecdir}/framework-ectool
+install -Dm755 %SOURCE3 %{buildroot}%{_libexecdir}/framework-ectool
 install -Dm755 %SOURCE4 %{buildroot}%{_sysconfdir}/framework-ectool/battery-limit.sh
 install -Dm755 %SOURCE5 %{buildroot}%{_sysconfdir}/framework-ectool/swap-caps-escape.sh
 
