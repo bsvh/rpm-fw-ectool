@@ -13,7 +13,10 @@ License:        BSD
 URL:            https://github.com/DHowett/framework-ec
 Source0:        https://github.com/DHowett/framework-ec/archive/%{commit}/%{reponame}-%{shortcommit}.tar.gz
 Source1:        fw-ectool.sh
-Source2:		framework-caps-swap-escape.service
+Source2:        framework-ectool.service
+Source3:        framework-ectool.sh
+Source4:        examples/battery-limit.sh
+Source5:        examples/swap-caps-escape.sh
 
 BuildRequires:  gcc
 BuildRequires:  make
@@ -37,22 +40,27 @@ make utils
 %install
 install -Dm755 build/bds/util/ectool %{buildroot}%{_bindir}/ectool
 install -m755 %SOURCE1 %{buildroot}%{_bindir}/fw-ectool
-install -Dm644 %SOURCE2 %{buildroot}%{_libdir}/systemd/system/framework-caps-swap-escape.service
-
-
-%clean
-rm -rf %{buildroot}
+install -Dm644 %SOURCE2 %{buildroot}%{_libdir}/systemd/system/framework-ectool.service
+install -m755 %SOURCE3 %{buildroot}%{_libexecdir}/framework-ectool
+install -Dm755 %SOURCE4 %{buildroot}%{_sysconfdir}/framework-ectool/battery-limit.sh
+install -Dm755 %SOURCE5 %{buildroot}%{_sysconfdir}/framework-ectool/swap-caps-escape.sh
 
 
 %files
 %license LICENSE
 %{_bindir}/ectool
 %{_bindir}/fw-ectool
-%{_libdir}/systemd/system/framework-caps-swap-escape.service
+%{_libdir}/systemd/system/framework-ectool.service
+%{_libexecdir}%{_libexec}/framework-ectool
+%{_sysconfdir}/framework-ectool/battery-limit.sh
+%{_sysconfdir}/framework-ectool/swap-caps-escape.sh
 
 
 
 %changelog
+* Thu Jun 01 2023 Brendan Van Hook <brendan@vastactive.com>
+- Add script to check for any framework ectool scripts and run them.
+- Change systemd unit to use framework-ectool script.
 * Tue Dec 13 2022 Brendan Van Hook <brendan@vastactive.com>
 - Add systemd unit file for swapping caps lock with escape
 * Wed Oct 05 2022 Brendan Van Hook <brendan@vastactive.com>
