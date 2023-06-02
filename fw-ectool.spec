@@ -15,8 +15,8 @@ Source0:        https://github.com/DHowett/framework-ec/archive/%{commit}/%{repo
 Source1:        fw-ectool.sh
 Source2:        framework-ectool.service
 Source3:        framework-ectool.sh
-Source4:        examples/battery-limit.sh
-Source5:        examples/swap-caps-escape.sh
+Source4:        battery-limit.sh
+Source5:        swap-caps-escape.sh
 
 BuildRequires:  gcc
 BuildRequires:  make
